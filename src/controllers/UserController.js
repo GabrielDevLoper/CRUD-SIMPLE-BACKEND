@@ -29,8 +29,12 @@ module.exports = {
     async delete(req, res) {
         const { id } = req.params;
 
+        const user = await User.findById(id);
+
+        const { firstName, lastName } = user;
+
         await User.findByIdAndDelete(id);
 
-        return res.json({ message:"Excluído com Sucesso"});
+        return res.json({ message:`${firstName} ${lastName} Excluido com sucesso`});
     }
 }
