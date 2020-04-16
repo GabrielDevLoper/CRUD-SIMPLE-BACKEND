@@ -9,13 +9,13 @@ module.exports = {
         const user = await User.findOne({ email });
 
         if(!user){
-            return res.status(404).json({message: "Email de usuário não existe"})
+            return res.json({messageEmail: "Email de usuário não existe"})
         }
 
         const isPasswordCorrect = await bcrypt.compare(password, user.passwordHash);
 
         if(!isPasswordCorrect){
-            return res.status(401).json({ message: "Senha Incorreta" });
+            return res.json({ messageSenha: "Senha Incorreta" });
         }
 
         return res.json({

@@ -19,4 +19,4 @@ mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true
 });
 
-app.listen(process.env.PORT || 3333);
+app.listen(process.env.PORT || 3333)
